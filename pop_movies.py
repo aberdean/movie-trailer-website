@@ -38,8 +38,7 @@ def fetch_trailer(movie_id):
         {string} -- the URL for the movie's YouTube trailer
     """
     url = "%s%s/videos?api_key=%s&language=en-US" % (BASE_URL, movie_id, API_KEY)
-    payload = "{}"
-    response = requests.request("GET", url, data=payload)
+    response = requests.request("GET", url)
     trailer_list = json.loads(response.content)["results"]
     # We want a YouTube trailer, so from the list of videos, we pick the
     # first one that is a trailer and is hosted on YouTube.
@@ -56,8 +55,7 @@ def main():
     movies = []
 
     url = "%spopular?page=1&language=en-US&api_key=%s" % (BASE_URL, API_KEY)
-    payload = "{}"
-    response = requests.request("GET", url, data=payload)
+    response = requests.request("GET", url)
     movie_list = json.loads(response.content)["results"]
 
     for movie in movie_list:
