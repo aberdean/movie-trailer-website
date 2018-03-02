@@ -27,7 +27,6 @@ class Movie:
         self.title = title
         self.poster_image_url = poster
         self.trailer_youtube_url = trailer
-        
 
 def fetch_trailer(movie_id):
     """Given a movie id, retrieves the URL for the movie's YouTube trailer.
