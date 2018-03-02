@@ -30,10 +30,10 @@ class Movie:
 
 def fetch_trailer(movie_id):
     """Given a movie id, retrieves the URL for the movie's YouTube trailer.
-    
+
     Arguments:
         movie_id {string} -- the movie id
-    
+
     Returns:
         {string} -- the URL for the movie's YouTube trailer
     """
@@ -46,7 +46,6 @@ def fetch_trailer(movie_id):
     for trailer in trailer_list:
         if trailer["site"] == "YouTube" and trailer["type"] == "Trailer":
             return "%s%s" % (BASE_TRAILER_URL, trailer["key"])
-
 
 def main():
     """Fetches a list of popular movies from The Movie Database (TMDb).
