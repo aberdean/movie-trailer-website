@@ -29,16 +29,16 @@ class Movie:
         self.trailer_youtube_url = trailer
         
 
-def fetch_trailer(id):
+def fetch_trailer(movie_id):
     """Given a movie id, retrieves the URL for the movie's YouTube trailer.
     
     Arguments:
-        id {string} -- the movie id
+        movie_id {string} -- the movie id
     
     Returns:
         {string} -- the URL for the movie's YouTube trailer
     """
-    url = "%s%s/videos?api_key=%s&language=en-US" % (BASE_URL, id, API_KEY)
+    url = "%s%s/videos?api_key=%s&language=en-US" % (BASE_URL, movie_id, API_KEY)
     payload = "{}"
     response = requests.request("GET", url, data=payload)
     trailer_list = json.loads(response.content)["results"]
