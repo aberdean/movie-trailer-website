@@ -2,15 +2,14 @@ import requests
 import json
 from fresh_tomatoes import open_movies_page
 
-#############################################
-##### PLEASE, INSERT YOUR API KEY BELOW #####
-#############################################
+# PLEASE, INSERT YOUR API KEY BELOW
 API_KEY = ""
 
 # The base URLs for the TMDb API, the poster image, and the YouTube trailer.
 BASE_URL = "https://api.themoviedb.org/3/movie/"
 BASE_POSTER_URL = "https://image.tmdb.org/t/p/w500"
 BASE_TRAILER_URL = "https://www.youtube.com/watch?v="
+
 
 class Movie:
     """A movie is characterized by its title, the URL of its poster image,
@@ -28,6 +27,7 @@ class Movie:
         self.poster_image_url = poster
         self.trailer_youtube_url = trailer
 
+
 def fetch_trailer(movie_id):
     """Given a movie id, retrieves the URL for the movie's YouTube trailer.
 
@@ -37,7 +37,9 @@ def fetch_trailer(movie_id):
     Returns:
         {string} -- the URL for the movie's YouTube trailer
     """
-    url = "%s%s/videos?api_key=%s&language=en-US" % (BASE_URL, movie_id, API_KEY)
+    url = "%s%s/videos?api_key=%s&language=en-US" % (BASE_URL,
+                                                     movie_id, API_KEY)
+
     response = requests.request("GET", url)
     trailer_list = json.loads(response.content)["results"]
     # We want a YouTube trailer, so from the list of videos, we pick the
@@ -45,6 +47,7 @@ def fetch_trailer(movie_id):
     for trailer in trailer_list:
         if trailer["site"] == "YouTube" and trailer["type"] == "Trailer":
             return "%s%s" % (BASE_TRAILER_URL, trailer["key"])
+
 
 def main():
     """Fetches a list of popular movies from The Movie Database (TMDb).
