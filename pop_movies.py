@@ -18,7 +18,7 @@ class Movie:
     """
     def __init__(self, title, poster, trailer):
         """Constructor.
-        
+
         Arguments:
             title {string} -- the title of the movie
             poster {string} -- the URL of the poster image
@@ -42,7 +42,7 @@ def fetch_trailer(movie_id):
     payload = "{}"
     response = requests.request("GET", url, data=payload)
     trailer_list = json.loads(response.content)["results"]
-    # We want a YouTube trailer, so from the list of videos, we pick the 
+    # We want a YouTube trailer, so from the list of videos, we pick the
     # first one that is a trailer and is hosted on YouTube.
     for trailer in trailer_list:
         if trailer["site"] == "YouTube" and trailer["type"] == "Trailer":
@@ -51,7 +51,7 @@ def fetch_trailer(movie_id):
 
 def main():
     """Fetches a list of popular movies from The Movie Database (TMDb).
-    For each movie, extracts its title, the URL of its poster image, and 
+    For each movie, extracts its title, the URL of its poster image, and
     the URL of its YouTube trailer. Stores all the movies in a list and
     calls fresh_tomatoes.py to generate a webpage from the list of movies.
     """
