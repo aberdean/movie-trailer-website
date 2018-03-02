@@ -11,13 +11,14 @@
 
 ## Introduction
 
-This is a project I built for the Udacity Full Stack Web Developer Nanodegree. 
-The fresh_tomatoes.py file is written by Udacity. The pop_movies.py is written 
+This is a project I built for the Udacity Full Stack Web Developer Nanodegree.
+The fresh_tomatoes.py file is written by Udacity. The pop_movies.py is written
 by me.
 
 ## Instructions
 
-To run this project, it is necessary to have the json and requests libraries installed. They can be installed with pip as follows:
+To run this project, it is necessary to have the json and requests libraries
+installed. They can be installed with pip as follows:
 
 ```
 pip install json
