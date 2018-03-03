@@ -1,6 +1,6 @@
 # Movie Trailer Website Project
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/cb6137214b19210a76b1/maintainability)](https://codeclimate.com/github/aberdean/movie-trailer-website/maintainability)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/36de46ee51764ad2a3df78a6abfa0082)](https://www.codacy.com/app/aberdean/movie-trailer-website)
 [![Maintainability](https://api.codeclimate.com/v1/badges/cb6137214b19210a76b1/maintainability)](https://codeclimate.com/github/aberdean/movie-trailer-website/maintainability)
 
 ## Table of Contents
