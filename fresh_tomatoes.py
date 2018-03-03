@@ -35,7 +35,7 @@ main_page_head = '''
         .movie-tile {
             margin-bottom: 20px;
             padding-top: 20px;
-            min-height: 54%;
+            min-height: 458px;
         }
         .movie-tile:hover {
             background-color: #EEE;
