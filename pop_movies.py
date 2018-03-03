@@ -41,7 +41,11 @@ def fetch_trailer(movie_id):
                                                      movie_id, API_KEY)
 
     response = requests.request("GET", url)
-    trailer_list = json.loads(response.content)["results"]
+    try:
+        trailer_list = json.loads(response.content)["results"]
+    # If the trailer cannot be fetched, return None.
+    except requests.exceptions.RequestException:
+        return None
     # We want a YouTube trailer, so from the list of videos, we pick the
     # first one that is a trailer and is hosted on YouTube.
     for trailer in trailer_list:
@@ -59,7 +63,14 @@ def main():
 
     url = "%spopular?page=1&language=en-US&api_key=%s" % (BASE_URL, API_KEY)
     response = requests.request("GET", url)
-    movie_list = json.loads(response.content)["results"]
+
+    try:
+        movie_list = json.loads(response.content)["results"]
+    # If movies cannot be fetched, print the error and return, since there is
+    # nothing to show on the webpage.
+    except requests.exceptions.RequestException as e:
+        print("Unable to fetch movies: %s" % (e))
+        return
 
     for movie in movie_list:
         title = movie["title"]
